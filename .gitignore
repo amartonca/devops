@@ -1,3 +1,4 @@
 **/*.deb
 .idea
 1_minikube/kubectl
+3_python_service/venv
