@@ -63,3 +63,8 @@ spec:
             - configMapRef:
                 name: {{ include "ConfigMap.fullName" . }}
                 optional: false
+  strategy:
+    type: {{.Values.strategy.type }}
+    rollingUpdate:
+      maxUnavailable: {{ .Values.strategy.rollingUpdate.maxUnavailable }}
+      maxSurge: {{ .Values.strategy.rollingUpdate.maxSurge }}
