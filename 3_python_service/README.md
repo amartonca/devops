@@ -34,6 +34,15 @@ Then I created and used the virtual environment with `virtualenv -p python3 env 
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
 
+4. I had to update my producer to support json payload and my consumer to handle thread concurrency access:
+
+![img_4.png](img_4.png)
+
+After a few second of starting the consumer, it will go through all the messages in the topic and set the health status
+of the services correctly in-memory (not ideal to set health like this but works for this simple use case)
+
+![img_5.png](img_5.png)
+
 
 # Documentation
 
