@@ -1,0 +1,9 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: health-checks-topic
+  labels:
+    strimzi.io/cluster: health-check-service-cluster
+spec:
+  partitions: 3
+  replicas: 3
