@@ -118,5 +118,19 @@ I've also tested the producer service by sending a POST request to the health-ch
 ![img_6.png](img_6.png)
 ![img_5.png](img_5.png)
 
+5. Ensure health-check services are registered into Prometheus and Grafana:
+   I've had to extend the helm chart by adding a manifest of kind ServiceMonitor then running the helm upgrade script.
+
+![img_7.png](img_7.png)
+
+A new service monitor has been created for both the consumer and producer services.
+
+Then it was just a matter of dealing with data in Grafana.
+
+![img_8.png](img_8.png)
+
+There are tons of ways to deal with the data in Grafana. I just added
+the https://grafana.com/grafana/dashboards/18283-kubernetes-dashboard/ dashboard to visualize the pods and namespaces.
+
 # Documentation
 

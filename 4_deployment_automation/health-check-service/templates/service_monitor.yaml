@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prometheus-monitor-{{ include "HealthCheckService.name" . }}
+  labels:
+    team: backend
+spec:
+  selector:
+    matchLabels: {{ include "HealthCheckService.selectorLabels" . | nindent 6 }}
+  endpoints:
+    - port: http
+      interval: 5s
+      path: /metrics
+      scheme: http
