@@ -1,0 +1,62 @@
+# Default values for HealthCheckService.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+tests:
+  enabled: false
+
+image:
+  name:  # can either be 'consumer' or 'producer' for this local environment
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+#imagePullSecrets: [ ] # not configured for now
+
+nameOverride: { } # can either be 'consumer' or 'producer' for this local environment
+fullnameOverride: ""
+
+podAnnotations: { }
+podLabels: { }
+
+
+service:
+  type: ClusterIP
+  port:
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /health
+    scheme: HTTP
+  initialDelaySeconds: 5
+  timeoutSeconds: 1
+  periodSeconds: 5
+  successThreshold: 1
+  failureThreshold: 5
+
+readinessProbe:
+  httpGet:
+    path: /health
+    scheme: HTTP
+  initialDelaySeconds: 5
+  timeoutSeconds: 1
+  periodSeconds: 5
+  successThreshold: 1
+  failureThreshold: 5
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
