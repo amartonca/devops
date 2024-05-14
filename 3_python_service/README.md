@@ -43,6 +43,16 @@ of the services correctly in-memory (not ideal to set health like this but works
 
 ![img_5.png](img_5.png)
 
+5. Last step was to dockerize both apps and ensure they can communicate with each other. I also leveraged on
+   docker-compose to build both images very fast and have a nice UI to monitor the health status of the services.
+
+![img_7.png](img_7.png)
+
+Additionally, I created a very quick python script that calls the producer API to send random status messages to the
+kafka topic.
+![img_6.png](img_6.png)
+
+Now the project is ready for k8s.
 
 # Documentation
 

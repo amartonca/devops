@@ -9,10 +9,8 @@ RUN pip3 install -r requirements.txt
 
 COPY HealthCheckService.py app.py
 
-#ENV KAFKA_BOOTSTRAP_SERVERS = my-cluster-kafka-bootstrap:9094;
-#ENV KAFKA_TOPIC = health_checks_topic;
-#ENV KAFKA_CONSUMER_GROUP_ID = health_checks_service;
-
+ENV KAFKA_BOOTSTRAP_SERVERS = kafka-bootstrap-server:9094;
+ENV KAFKA_TOPIC = health-checks-topic;
 ENV HEALTHCHECK_SERVICE_DEBUG false;
 
 ENV FLASK_APP=app.py
@@ -26,4 +24,4 @@ HEALTHCHECK \
     --retries=3 \
     CMD curl --fail http://127.0.0.1:5000/health || exit 1
 
-CMD [ "python3", "-m" , "flask", "run","--host=0.0.0.0"]
+CMD [ "python3", "-m" , "flask", "run","--host=0.0.0.0", "--port=5000"]
