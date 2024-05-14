@@ -15,7 +15,7 @@ image:
 
 #imagePullSecrets: [ ] # not configured for now
 
-nameOverride: { } # can either be 'consumer' or 'producer' for this local environment
+nameOverride: ""
 fullnameOverride: ""
 
 podAnnotations: { }
@@ -25,6 +25,11 @@ podLabels: { }
 configmap:
   nameOverride:
   data:
+    KAFKA_BOOTSTRAP_SERVERS: '' # fill by CLI
+    KAFKA_TOPIC: '' # fill by CLI
+    KAFKA_CONSUMER_GROUP_ID: '' # fill by CLI
+    HEALTHCHECK_SERVICE_DEBUG: "true"
+    CONSUMER_HEALTHCHECK_SERVICE_DEBUG: "true"
 
 service:
   type: ClusterIP

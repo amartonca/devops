@@ -1,6 +1,0 @@
-# these values are unique to the producer
-configmap:
-  data:
-    KAFKA_BOOTSTRAP_SERVERS: # fill by CLI
-    KAFKA_TOPIC: # fill by CLI
-    HEALTHCHECK_SERVICE_DEBUG: "true"
