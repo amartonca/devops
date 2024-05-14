@@ -75,6 +75,7 @@ helm upgrade --install \
     --set configmap.data.KAFKA_BOOTSTRAP_SERVERS="${KAFKA_BOOTSTRAP_SERVERS}"\
     --set configmap.data.KAFKA_TOPIC="${KAFKA_TOPIC}" \
     --set configmap.data.HEALTHCHECK_SERVICE_DEBUG="'${HEALTHCHECK_SERVICE_DEBUG}'" \
+     --set autoscaling.enabled=true \
     --wait \
     --debug \
     --atomic \
@@ -94,6 +95,7 @@ helm upgrade --install \
     --set configmap.data.KAFKA_TOPIC="${KAFKA_TOPIC}" \
     --set configmap.data.KAFKA_CONSUMER_GROUP_ID="${KAFKA_CONSUMER_GROUP_ID}" \
     --set configmap.data.CONSUMER_HEALTHCHECK_SERVICE_DEBUG="'${CONSUMER_HEALTHCHECK_SERVICE_DEBUG}'" \
+    --set autoscaling.enabled=true \
     --wait \
     --debug \
     consumer .
@@ -102,6 +104,11 @@ helm upgrade --install \
 ![img_2.png](img_2.png)
 
 At as it can be seen, both services are installed in the minikube cluster and have access to the topic.
+
+4. Autoscaling can be easily configured by using the flag `--set autoscaling.enabled=true` in the helm command to
+   assure horizontal scaling.
+
+![img_3.png](img_3.png)
 
 # Documentation
 
