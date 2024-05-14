@@ -29,7 +29,14 @@ Then I created and used the virtual environment with `virtualenv -p python3 env 
 
 ![img_1.png](img_1.png)
 
+3. Add consumer code to read from kafka topic
+
+During this step, i also had to configure kafka to be accessible outside minikube cluster using loadbalancer:
+
+
 # Documentation
 
 - python with flask for simple rest API
   endpoint: https://medium.com/@onejohi/building-a-simple-rest-api-with-python-and-flask-b404371dc699
+- configure kafka to be accessible outside minikube: https://strimzi.io/blog/2019/05/13/accessing-kafka-part-4/
+- containerize flask app: https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/
