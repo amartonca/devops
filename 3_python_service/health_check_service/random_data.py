@@ -3,7 +3,7 @@ import random
 from datetime import datetime
 
 # Define the endpoint URL
-url = 'http://127.0.0.1:5000/check_health'
+url = 'http://192.168.49.2:32324/check_health'
 
 # Define the list of service names
 services = [

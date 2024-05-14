@@ -110,5 +110,13 @@ At as it can be seen, both services are installed in the minikube cluster and ha
 
 ![img_3.png](img_3.png)
 
+And to test that it works, I enabled NodePort for the services and sent some requests to the consumer service.
+![img_4.png](img_4.png)
+
+I've also tested the producer service by sending a POST request to the health-check endpoint.
+
+![img_6.png](img_6.png)
+![img_5.png](img_5.png)
+
 # Documentation
 

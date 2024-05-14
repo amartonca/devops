@@ -32,7 +32,7 @@ configmap:
     CONSUMER_HEALTHCHECK_SERVICE_DEBUG: "true"
 
 service:
-  type: ClusterIP
+  type: NodePort
   port:
 
 resources:
