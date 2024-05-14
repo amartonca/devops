@@ -8,3 +8,4 @@ kafka-python==2.0.2
 MarkupSafe==2.1.5
 Werkzeug==3.0.3
 zipp==3.18.1
+prometheus-flask-exporter==0.23.0

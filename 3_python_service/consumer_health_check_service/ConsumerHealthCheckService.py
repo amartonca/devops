@@ -5,9 +5,11 @@ import logging as log
 import os
 from kafka import KafkaConsumer
 import json
+from prometheus_flask_exporter import PrometheusMetrics
 
 # Initialize Flask app
 app = Flask(__name__)
+metrics = PrometheusMetrics(app, path='/metrics')
 
 # Initialize logging
 log.basicConfig(level=log.INFO)

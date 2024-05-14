@@ -3,9 +3,14 @@ import logging as log
 import os
 from kafka import KafkaProducer
 import json
+from prometheus_flask_exporter import PrometheusMetrics
 
 # Initialize Flask app
 app = Flask(__name__)
+metrics = PrometheusMetrics(app, path='/metrics')
+
+# Static information as metric
+metrics.info('app_info', 'Application info', version='1.0.3')
 
 log.basicConfig(level=log.INFO)
 
