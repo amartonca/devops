@@ -132,5 +132,12 @@ Then it was just a matter of dealing with data in Grafana.
 There are tons of ways to deal with the data in Grafana. I just added
 the https://grafana.com/grafana/dashboards/18283-kubernetes-dashboard/ dashboard to visualize the pods and namespaces.
 
+6. As a last step to ensure everything is going smoothly I modified the `random_data.py` script to spam the kafka topic
+   and therefore the producer and consumer and noticed the spike also in Grafana.
+
+![img_9.png](img_9.png)
+
+![img_10.png](img_10.png)
+
 # Documentation
 
