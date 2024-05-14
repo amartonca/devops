@@ -11,7 +11,7 @@ COPY HealthCheckService.py app.py
 
 #ENV KAFKA_BOOTSTRAP_SERVERS = my-cluster-kafka-bootstrap:9094;
 #ENV KAFKA_TOPIC = health_checks_topic;
-#ENV KAFKA_GROUP_ID = health_checks_service;
+#ENV KAFKA_CONSUMER_GROUP_ID = health_checks_service;
 
 ENV HEALTHCHECK_SERVICE_DEBUG false;
 
