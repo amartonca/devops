@@ -50,3 +50,11 @@ app.kubernetes.io/name: {{ include "HealthCheckService.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/type: {{ .Release.Name }}
 {{- end }}
+
+
+{{/*
+Config Map
+*/}}
+{{- define "ConfigMap.fullName" -}}
+{{ .Values.configmap.nameOverride | default (include "HealthCheckService.name" .) }}-config-map
+{{- end }}

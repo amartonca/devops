@@ -1,5 +1,8 @@
 {{- $image := .Values.image.name | required "image.name is required." -}}
 {{- $port := .Values.service.port | required "service.port is required." -}}
+{{- $configMapData := .Values.configmap.data | required "configmap.data is required." -}}
+{{- $server := .Values.configmap.data.KAFKA_BOOTSTRAP_SERVERS | required "configmap.data.KAFKA_BOOTSTRAP_SERVERS is required." -}}
+{{- $topic := .Values.configmap.data.KAFKA_TOPIC | required "configmap.data.KAFKA_TOPIC is required." -}}
 
 apiVersion: apps/v1
 kind: Deployment
@@ -40,3 +43,7 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "ConfigMap.fullName" . }}
+                optional: false

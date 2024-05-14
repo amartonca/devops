@@ -21,6 +21,10 @@ fullnameOverride: ""
 podAnnotations: { }
 podLabels: { }
 
+# must be overwritten by the consumer or producer values file
+configmap:
+  nameOverride:
+  data:
 
 service:
   type: ClusterIP

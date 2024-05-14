@@ -13,5 +13,23 @@ scale horizontally.
 
 I configured the helm chart to take the image and port as inputs.
 
+2. Next I had to set up the environment variables for the containers in the configmap since i didn't have any secrets
+   yet.
+
+To test that the chart is valid, i used helm template:
+
+```bash
+helm template \
+    -f values.yaml \
+    -f values-producer.yaml \
+    --set image.name=producer \
+    --set service.port=5000 \
+    --set configmap.data.KAFKA_BOOTSTRAP_SERVERS=some-server \
+    --set configmap.data.KAFKA_TOPIC=some-topic \
+    .
+```
+
+![img.png](img.png)
+
 # Documentation
 
