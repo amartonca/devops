@@ -29,9 +29,10 @@ Then I created and used the virtual environment with `virtualenv -p python3 env 
 
 ![img_1.png](img_1.png)
 
-3. Add consumer code to read from kafka topic
+3. Then i designed both the producer and the consumer to send and receive messages from the kafka topic
 
-During this step, i also had to configure kafka to be accessible outside minikube cluster using loadbalancer:
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
 
 
 # Documentation
